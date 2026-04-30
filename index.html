@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的网站 - AI智能助手</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* 主要内容区 */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .card-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .nav-links a { margin: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🤖 AI智能助手</div>
+            <div class="nav-links">
+                <a href="#">首页</a>
+                <a href="#">产品</a>
+                <a href="#">关于</a>
+                <a href="#">联系</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容区 -->
+    <section class="hero">
+        <h1>欢迎使用 AI 智能助手</h1>
+        <p>点击右下角气泡，随时与我对话！我可以帮你解答问题、提供建议、处理任务。</p>
+    </section>
+
+    <div class="card-container">
+        <div class="card">
+            <div class="card-icon">💬</div>
+            <h3>智能对话</h3>
+            <p>基于大语言模型的智能对话系统，可以理解你的问题并提供准确回答。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">📚</div>
+            <h3>知识问答</h3>
+            <p>内置丰富知识库，可以回答各类专业问题和生活常识。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3>快速响应</h3>
+            <p>7x24小时在线，秒级响应，随时随地为你提供帮助。</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 AI智能助手 | 点击右下角气泡开始对话</p>
+    </div>
+
+    <!-- ========== Dify 聊天机器人嵌入代码 ========== -->
+    <script>
+    window.difyChatbotConfig = {
+        token: '3yx8WSAY5o9IDbwQ',
+        baseUrl: 'http://127.0.0.1',  // 本机Dify地址，如果Dify端口不是80，需要加端口如 http://127.0.0.1:3000
+        inputs: {},
+        systemVariables: {},
+        userVariables: {}
+    };
+    </script>
+    <script src="http://127.0.0.1/embed.min.js" id="3yx8WSAY5o9IDbwQ" defer></script>
+    <style>
+    #dify-chatbot-bubble-button {
+        background-color: #1C64F2 !important;
+    }
+    #dify-chatbot-bubble-window {
+        width: 24rem !important;
+        height: 40rem !important;
+    }
+    </style>
+    <!-- ========== Dify 嵌入代码结束 ========== -->
+
+</body>
+</html>
